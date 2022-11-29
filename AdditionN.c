@@ -44,7 +44,7 @@ int main()
 {
     int *Arr = NULL;        // Poiter to hold the address of array
     int iSize = 0;          // Variable to hold size of array
-    int i = 0;              // Loop counter
+    register int i = 0;              // Loop counter
     int iSum = 0;           // To hold the addition
 
     printf("Please enter how many elements you want?\n");
@@ -55,22 +55,23 @@ int main()
     printf("Memory allocation is succesful\n");
 
     printf("Please enter the elements\n");
-    
+    //    1         2       3  
     for(i = 0; i < iSize; i++)
     {
-        scanf("%d",&Arr[i]);
+        scanf("%d",&Arr[i]);    // 4
     }
 
     // Perform addition
+    //    1        2        3
     for(i = 0; i < iSize; i++)
     {
-        iSum = iSum + Arr[i];
+        iSum = iSum + Arr[i];  // 4 
     }
 
     printf("Addition is : %d\n",iSum);
 
     free(Arr);
     printf("Memory gets deallocated.\n");
-    
+
     return 0;
 }

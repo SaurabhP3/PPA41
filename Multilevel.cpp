@@ -39,18 +39,35 @@ class Derived : public Base     // class Derived extends Base  (Syntax of Java)
         }
 };
 
+class DerivedX : public Derived
+{
+    public:
+        int i,j;
+        DerivedX()
+        {
+            cout<<"Inside DerivedX constructor\n";
+        }
+        ~DerivedX()
+        {
+            cout<<"Inside DerivedX destructor\n";
+        }
+        void sun()
+        {
+            cout<<"Inside DerivedX sun\n";
+        }
+};
+
 int main()
 {
-    // Derived dobj;        // Static memory allocation
+    cout<<"Size of Base : "<<sizeof(Base)<<"\n";            // 8
+    cout<<"Size of Derived : "<<sizeof(Derived)<<"\n";      // 16
+    cout<<"Size of DerivedX : "<<sizeof(DerivedX)<<"\n";    // 24
 
-    Derived * ptr = NULL;
+    DerivedX dobj;
 
-    ptr = new Derived;      // Dynamic memory allocation
-
-    ptr->fun();
-    ptr->gun();
-
-    delete ptr;
-
+    dobj.fun();
+    dobj.gun();
+    dobj.sun();
+    
     return 0;
 }
